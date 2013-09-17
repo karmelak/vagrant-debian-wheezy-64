@@ -42,3 +42,4 @@ To add `debian-wheezy-64.box` with name `debian-71` into vagrant:
 ### Notes
 
 This script basted on original Carl's [repo](https://github.com/cal/vagrant-ubuntu-precise-64) and with some tweaks to be compatible Debian 7.1.
+It was then forked from dotzero's [repo](https://github.com/dotzero/vagrant-debian-wheezy-64) to be more in line with debian best practises.
