@@ -20,3 +20,7 @@ update-grub
 
 # clean up
 apt-get clean
+
+# Fill hard drive with zeros to reduce the disk size
+dd if=/dev/zero of=/ZEROS bs=8M
+rm -f /ZEROS
