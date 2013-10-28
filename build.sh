@@ -196,44 +196,45 @@ if ! VBoxManage showvminfo "${BOX}" >/dev/null 2>/dev/null; then
   done
   echo ""
 
-  # Forward SSH
-  VBoxManage modifyvm "${BOX}" \
-    --natpf1 "guestssh,tcp,,2222,,22"
+#  # Forward SSH
+#  VBoxManage modifyvm "${BOX}" \
+#    --natpf1 "guestssh,tcp,,2222,,22"
 
-  # Attach guest additions iso
-  VBoxManage storageattach "${BOX}" \
-    --storagectl "IDE Controller" \
-    --port 1 \
-    --device 0 \
-    --type dvddrive \
-    --medium "${ISO_GUESTADDITIONS}"
+#  # Attach guest additions iso
+#  VBoxManage storageattach "${BOX}" \
+#    --storagectl "IDE Controller" \
+#    --port 1 \
+#    --device 0 \
+#    --type dvddrive \
+#    --medium "${ISO_GUESTADDITIONS}"
 
-  VBoxManage startvm "${BOX}"
+#  VBoxManage startvm "${BOX}"
 
-  # get private key
-  curl --output "${FOLDER_BUILD}/id_rsa" "https://raw.github.com/mitchellh/vagrant/master/keys/vagrant"
-  chmod 600 "${FOLDER_BUILD}/id_rsa"
+#  # get private key
+#  curl --output "${FOLDER_BUILD}/id_rsa" "https://raw.github.com/mitchellh/vagrant/master/keys/vagrant"
+#  chmod 600 "${FOLDER_BUILD}/id_rsa"
 
-  # install virtualbox guest additions
-  sleep 10
-  ssh -i "${FOLDER_BUILD}/id_rsa" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2222 vagrant@127.0.0.1 "sudo mount /dev/cdrom /media/cdrom; sudo sh /media/cdrom/VBoxLinuxAdditions.run -- --force; sudo umount /media/cdrom; sudo shutdown -h now"
-  echo -n "Waiting for machine to shut off "
-  while VBoxManage list runningvms | grep "${BOX}" >/dev/null; do
-    sleep 20
-    echo -n "."
-  done
-  echo ""
+#  # install virtualbox guest additions
+#  sleep 10
+#  ssh -i "${FOLDER_BUILD}/id_rsa" -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 2222 vagrant@127.0.0.1 "sudo mount /dev/cdrom /media/cdrom; sudo sh /media/cdrom/VBoxLinuxAdditions.run install; sudo umount /media/cdrom; sudo shutdown -h now"
+#  echo -n "Waiting for machine to shut off "
+#  while VBoxManage list runningvms | grep "${BOX}" >/dev/null; do
+#    sleep 20
+#    echo -n "."
+#  done
+#  echo ""
 
-  VBoxManage modifyvm "${BOX}" --natpf1 delete "guestssh"
+#  VBoxManage modifyvm "${BOX}" --natpf1 delete "guestssh"
 
-  # Detach guest additions iso
-  echo "Detach guest additions ..."
-  VBoxManage storageattach "${BOX}" \
-    --storagectl "IDE Controller" \
-    --port 1 \
-    --device 0 \
-    --type dvddrive \
-    --medium emptydrive
+#  # Detach guest additions iso
+#  echo "Detach guest additions ..."
+#  VBoxManage storageattach "${BOX}" \
+#    --storagectl "IDE Controller" \
+#    --port 1 \
+#    --device 0 \
+#    --type dvddrive \
+#    --medium emptydrive
+
 fi
 
 echo "Building Vagrant Box ..."
@@ -243,3 +244,4 @@ vagrant package --base "${BOX}" --output "${BOX}.box"
 # http://blog.ericwhite.ca/articles/2009/11/unattended-debian-lenny-install/
 # http://docs-v1.vagrantup.com/v1/docs/base_boxes.html
 # http://www.debian.org/releases/stable/example-preseed.txt
+
