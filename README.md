@@ -2,7 +2,7 @@
 
 This script will:
 
- 1. download the `Debian 7.1 "Wheezy"` server, 64bit iso
+ 1. download the `Debian 7 "Wheezy"` server 64bit iso
  2. ... do some magic to turn it into a vagrant box file
  3. output `debian-wheezy-64.box`
  
@@ -26,9 +26,9 @@ This should do everything you need. If you don't have `mkisofs` or `p7zip`, inst
     brew install cdrtools
     brew install p7zip
 
-To add `debian-wheezy-64.box` with name `debian-71` into vagrant:
+To add `debian-wheezy-64.box` with name `debian-7` into vagrant:
 
-    vagrant box add "debian-71" debian-wheezy-64.box
+    vagrant box add "debian-7" debian-wheezy-64.box
 
 ## Usage on Linux
 
@@ -39,9 +39,9 @@ This should do everything you need. If you don't have `mkisofs` or `p7zip`:
     sudo apt-get install genisoimage
     sudo apt-get install p7zip-full
 
-To add `debian-wheezy-64.box` with name `debian-71` into vagrant:
+To add `debian-wheezy-64.box` with name `debian-7` into vagrant:
 
-    vagrant box add "debian-71" debian-wheezy-64.box
+    vagrant box add "debian-7" debian-wheezy-64.box
 
 ### Notes
 
