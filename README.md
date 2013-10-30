@@ -48,4 +48,4 @@ To add `debian-wheezy-64.box` with name `debian-7` into vagrant:
 This script basted on original Carl's [repo](https://github.com/cal/vagrant-ubuntu-precise-64) and with some tweaks to be compatible Debian 7.1.
 It was then forked from dotzero's [repo](https://github.com/dotzero/vagrant-debian-wheezy-64) to be more in line with debian best practises.
 
-By *vanilla* Debian install, we mean that we only install here packages from debian main archive and only those necesseray for vagrant and its default configuration management tool ( look for d-i pkgsel/include in the [preseed file](https://github.com/EmmanuelKasper/vagrant-debian-wheezy-64/blob/master/preseed.cfg#L60)).
+By **Vanilla** Debian install, we mean that we only install packages from the debian main archive and the strict minimum needed for vagrant and the provisioning tools (for details look at `d-i pkgsel/include` in the [preseed file](https://github.com/EmmanuelKasper/vagrant-debian-wheezy-64/blob/master/preseed.cfg#L60)).
