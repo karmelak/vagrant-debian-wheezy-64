@@ -5,6 +5,10 @@ This script will:
  1. download the `Debian 7.1 "Wheezy"` server, 64bit iso
  2. ... do some magic to turn it into a vagrant box file
  3. output `debian-wheezy-64.box`
+ 
+Note:
+GPG signed vagrant boxes produced by this script are available at http://basebox.libera.cc
+ 
 
 ## Requirements
 
